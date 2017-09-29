@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": false,
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "mapRoot": "/",
+    "outDir": "../dist/",
+    "sourceMap": true,
+    "lib": ["es2015", "dom"],
+    "noImplicitAny": false,
+    "removeComments": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["jasmine", "node"]
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.spec.ts",
+    "src/**/*.e2e.ts"
+  ]
+}

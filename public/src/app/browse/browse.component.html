@@ -1,0 +1,12 @@
+<a [routerLink]="['/browse']">Browse</a> | <a [routerLink]="['/listings']">Listings</a> | <a href="/logout">Logout</a>
+
+
+<div class="list" *ngFor="let question of allQuestions">
+    <h4>{{question.title}}</h4>
+    <img src="{{question.imgurl}}" alt="picture of a question">
+    <p>{{question.description}}</p>
+    <p>{{question.location}}</p>
+    <button (click)="delete(question._id)"type="button" name="button" *ngIf="question._user == userId"> Delete</button>
+    <button (click)="comment(question._user)" type="button" name="button" *ngIf="question._user != userId">Comment</button>
+
+</div>

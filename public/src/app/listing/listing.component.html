@@ -1,0 +1,80 @@
+<a [routerLink]="['/browse']">Browse</a> |
+<a [routerLink]="['/listings']">Listings</a> |
+<a href="/logout">Logout</a>
+
+<div id="createQuestion">
+    <form (submit)="newQuestion()" #createQuestion="ngForm">
+    Image URL:<br><input
+      type="text"
+      name="imgurl"
+      [(ngModel)]="question.imgurl"
+      #imgurl = "ngModel"
+      required
+    ><br><br>
+    Question:<br><input
+      type="text"
+      name="question"
+      [(ngModel)]="question.question"
+      #question = "ngModel"
+      required
+      minlength = "2"
+    ><br><br>
+    Comments:<br><textarea
+      name="comments"
+      [(ngModel)]="question.comments"
+      #comments = "ngModel"
+      required
+      maxlength = "200"
+      col="40"
+      row="4"
+    ></textarea><br><br>
+    Location:<br><input
+      type="text"
+      name="location"
+      [(ngModel)]="question.location"
+      #location = "ngModel"
+      required
+    ><br><br>
+    <input
+      type="submit"
+      value="Create"
+      [disabled]="!createQuestion.form.valid"
+    >
+  </form>
+</div>
+
+<br>
+<br>
+
+
+
+<form class="update" *ngFor="let question of myQuestions; let idx = index" (submit)="update(idx)">
+    <div class="list" >
+        <h4>{{question.title}}</h4>
+        <input
+            type="text"
+            name="title"
+            [(ngModel)]="question.title"
+            #title = "ngModel"
+            value="{{question.title}}">
+        <input
+            type="text"
+            name="comment"
+            [(ngModel)]="question.comment"
+            #comment = "ngModel"
+            value="{{question.comment}}">
+        <input
+            type="text"
+            name="location"
+            [(ngModel)]="question.location"
+            #location = "ngModel"
+            value="{{question.location}}">
+        <input
+            type="submit"
+            value="Update"
+        >
+        <button (click)="delete(question._id)"type="button" name="button" *ngIf="question._user == userId"> Delete</button>
+
+        <img src="{{question.imgurl}}" alt="picture of your thoughts">
+    </div>
+</form>

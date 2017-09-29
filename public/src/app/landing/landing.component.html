@@ -1,0 +1,86 @@
+<div id="wrapper" >
+    <h2>Question of the day!</h2>
+  <div id="questionOfDay" *ngIf="randQuestion">
+
+      <h3>{{randQuestion.title}}</h3>
+      <img src="{{randQuestion.imgurl}}" alt="picture a Question">
+      <p>{{randQuestion.description}}</p>
+      <p>{{randQuestion.price}}</p>
+      <p>{{randQuestion.location}}</p>
+
+
+  </div>
+  <fieldset>
+    <legend><h3>Login/Registration</h3></legend>
+    <div id="LoginReg">
+    <div id="Login">
+      <form (submit)="login()">
+        Email:<input
+          type="text"
+          name="email"
+          [(ngModel)] = "logUser.email"
+          #email = "ngModel"
+        ><br><br>
+        Password:<input
+          type="password"
+          name="password"
+          [(ngModel)] = "logUser.password"
+          #password = "ngModel"
+        ><br><br>
+        <input
+          type="submit"
+          value="Login"
+        ><br><br>
+      </form>
+    </div>
+    <div id="Registration">
+      <form #regForm="ngForm" (submit)="register()">
+        First Name:<input
+          type="text"
+          name="firstname"
+          [(ngModel)]="regUser.firstname"
+          #firstname = "ngModel"
+          required
+          minlength = "2"
+        ><br><br>
+        Last Name:<input
+          type="text"
+          name="lastname"
+          [(ngModel)]="regUser.lastname"
+          #lastname = "ngModel"
+          required
+          minlength = "2"
+        ><br><br>
+        Email:<input
+          type="text"
+          name="email"
+          [(ngModel)]="regUser.email"
+          #email = "ngModel"
+          required
+        ><br><br>
+        Password:<input
+          type="password"
+          name="password"
+          [(ngModel)]="regUser.password"
+          #password = "ngModel"
+          required
+        ><br><br>
+        Confirm Password:<input
+          type="password"
+          name="confirmpassword"
+          [(ngModel)]="regUser.confirmpassword"
+          #confirmpassword = "ngModel"
+          required
+          [pattern] = "regUser.password"
+        ><br><br>
+        <input
+          type="submit"
+          value="Register"
+          [disabled]="!regForm.form.valid"
+        ><br><br>
+      </form>
+    </div>
+  </div>
+  </fieldset>
+
+</div>

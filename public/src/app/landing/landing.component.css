@@ -1,0 +1,29 @@
+#LoginReg {
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+}
+
+#Login {
+    display: inline-block;
+    width: 40%;
+    height: auto;
+    border: 1px solid black;
+    text-align: center;
+    margin-left: 20px;
+    padding: 15px;
+}
+
+#Registration {
+    display: inline-block;
+    width: 40%;
+    height: auto;
+    border: 1px solid black;
+    text-align: center;
+    padding: 15px;
+}
+#bikeOfDay img{
+    height: 200px;
+    width: 200px;
+}
